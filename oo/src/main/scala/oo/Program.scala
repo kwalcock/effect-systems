@@ -1,10 +1,10 @@
 package oo
 
-abstract class Program(
+abstract class Program[T](
   protected val readLn: Program.ReadLn,
   protected val write: Program.Write
 ) {
-  def run(): Unit
+  def run(): T
 }
 
 object Program {
@@ -14,7 +14,7 @@ object Program {
 }
 
 class EnProgram(readLn: Program.ReadLn, write: Program.Write)
-    extends Program(readLn, write) {
+    extends Program[Unit](readLn, write) {
 
   def run(): Unit = {
     write("What's your name? ")
@@ -24,7 +24,7 @@ class EnProgram(readLn: Program.ReadLn, write: Program.Write)
 }
 
 class EsProgram(readLn: Program.ReadLn, write: Program.Write)
-    extends Program(readLn, write) {
+    extends Program[Unit](readLn, write) {
 
   def run(): Unit = {
     write("¿Cómo te llamas? ")
@@ -34,7 +34,7 @@ class EsProgram(readLn: Program.ReadLn, write: Program.Write)
 }
 
 class EnvProgram(readEnv: Program.ReadEnv, readLn: Program.ReadLn, write: Program.Write)
-    extends Program(readLn, write) {
+    extends Program[Unit](readLn, write) {
 
   def run(): Unit = {
     val lang = readEnv("LANG")
