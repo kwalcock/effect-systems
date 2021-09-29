@@ -14,3 +14,7 @@ scalacOptions ++=
 addCompilerPlugin(
   "org.typelevel" %% "kind-projector" % "0.13.0" cross CrossVersion.full
 )
+
+lazy val core: Project = (project in file("."))
+
+lazy val oo = project
